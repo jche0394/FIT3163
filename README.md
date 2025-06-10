@@ -84,3 +84,9 @@ GET /elo/constructor
 GET /predict/qualifying
 GET /predict/race
 GET /compare/headtohead
+```
+
+Start the API locally with:
+
+```bash
+uvicorn backend.main:app --reload
