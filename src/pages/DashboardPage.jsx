@@ -34,19 +34,10 @@ export default function DashboardPage() {
           </div>
         </DashboardCard>
 
-        {/* Quick Stats Summary */}
-        <DashboardCard title="Quick Stats">
-          <div className="flex flex-col h-60 p-4 bg-white rounded shadow-inner justify-between">
-            <div className="space-y-2 text-gray-700 text-sm">
-              <div><strong>Top Elo-ranked drivers:</strong> Verstappen, Norris, Leclerc</div>
-              <div><strong>Avg Elo (Grid):</strong> 1512</div>
-              <div><strong>Total races:</strong> 23</div>
-              <div><strong>Avg Pit Stops per Race:</strong> 2.7</div>
-              <div><strong>Most Overtakes:</strong> Alonso (137)</div>
-            </div>
-            <div className="mt-2 text-xs text-gray-500 text-center">
-              Updated after each event. Responsive typography.
-            </div>
+        {/* Driver Standings */}
+        <DashboardCard title="Top Drivers" icon={FaTrophy}>
+          <div className="h-60 p-4 bg-white rounded shadow-inner text-sm overflow-y-auto">
+            <DriverStandings />
           </div>
         </DashboardCard>
 
@@ -73,12 +64,7 @@ export default function DashboardPage() {
           </div>
         </DashboardCard>
 
-        {/* Driver Standings */}
-        <DashboardCard title="Top Drivers" icon={FaTrophy}>
-          <div className="h-60 p-4 bg-white rounded shadow-inner text-sm overflow-y-auto">
-            <DriverStandings />
-          </div>
-        </DashboardCard>
+        
 
       </div>
 
