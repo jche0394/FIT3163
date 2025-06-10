@@ -14,7 +14,11 @@ export default function DashboardPage() {
       {/* Main grid layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {/* Elo Rating History */}
-        <DashboardCard title="Elo Rating History" icon={FaChartLine}>
+        <DashboardCard
+          title="Elo Rating History"
+          icon={FaChartLine}
+          className="md:col-span-2 xl:col-span-3"
+        >
           <div className="flex flex-col h-60 p-4 bg-white rounded shadow-inner">
             <div className="flex justify-between items-center mb-3">
               <label className="text-sm">Filter by:</label>
@@ -76,33 +80,6 @@ export default function DashboardPage() {
           </div>
         </DashboardCard>
 
-        {/* Race Incident Summary */}
-        <DashboardCard title="Race Incidents & DNFs">
-          <div className="h-60 p-4 bg-white rounded shadow-inner text-sm text-gray-700">
-            <ul className="space-y-1">
-              <li>🇲🇨 Monaco – 3 DNFs (crash, gearbox, power unit)</li>
-              <li>🇮🇹 Imola – 2 penalties (unsafe release, track limits)</li>
-              <li>🇪🇸 Barcelona – 1 red flag, 5 warnings</li>
-            </ul>
-            <p className="text-xs text-gray-500 mt-4 text-center">
-              Sourced from official FIA event logs (NF1, F6).
-            </p>
-          </div>
-        </DashboardCard>
-
-        {/* Top Speed Highlights */}
-        <DashboardCard title="Top Speed Highlights">
-          <div className="h-60 p-4 bg-white rounded shadow-inner flex flex-col justify-between text-sm text-gray-700">
-            <div>
-              <div><strong>Top Speed (2025):</strong> Sainz – 356.4 km/h (Baku)</div>
-              <div><strong>Avg Speed Monza:</strong> 251.7 km/h</div>
-              <div><strong>Slowest Sector:</strong> Monaco S2 – 94.3 km/h</div>
-            </div>
-            <p className="text-xs text-gray-500 mt-2 text-center">
-              Based on GPS telemetry data.
-            </p>
-          </div>
-        </DashboardCard>
       </div>
 
       {/* Footer Sync Info */}
