@@ -1,17 +1,20 @@
 import DashboardCard from '../components/DashboardCard';
+import EloHistoryChart from '../components/EloHistoryChart';
+import UpcomingRaces from '../components/UpcomingRaces';
+import DriverStandings from '../components/DriverStandings';
+import { FaChartLine, FaCalendarAlt, FaTrophy } from 'react-icons/fa';
 
 export default function DashboardPage() {
   return (
-    <div className="p-6 font-sans text-gray-800">
+    <div className="p-6 font-sans text-gray-800 max-w-7xl mx-auto">
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:text-left">
         Dashboard Overview
       </h1>
 
       {/* Main grid layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-
         {/* Elo Rating History */}
-        <DashboardCard title="Elo Rating History">
+        <DashboardCard title="Elo Rating History" icon={FaChartLine}>
           <div className="flex flex-col h-60 p-4 bg-white rounded shadow-inner">
             <div className="flex justify-between items-center mb-3">
               <label className="text-sm">Filter by:</label>
@@ -21,9 +24,8 @@ export default function DashboardPage() {
                 <option>Driver-Car Pair</option>
               </select>
             </div>
-            <div className="flex-1 bg-gray-100 rounded flex items-center justify-center text-gray-500 text-sm text-center px-4">
-              [Line Chart Placeholder]<br />
-              Elo trend by event (zoom, pan, filter supported)
+            <div className="flex-1">
+              <EloHistoryChart />
             </div>
           </div>
         </DashboardCard>
@@ -45,23 +47,14 @@ export default function DashboardPage() {
         </DashboardCard>
 
         {/* Upcoming Races */}
-        <DashboardCard title="Upcoming Races">
-          <div className="h-60 p-4 bg-white rounded shadow-inner text-sm text-gray-700">
-            <ul className="space-y-1">
-              <li>🏁 Canada GP – Jun 16</li>
-              <li>🇦🇹 Austria GP – Jun 30</li>
-              <li>🇬🇧 Silverstone GP – Jul 7</li>
-              <li>🇭🇺 Hungary GP – Jul 21</li>
-              <li>🇧🇪 Belgium GP – Jul 28</li>
-            </ul>
-            <p className="text-xs text-gray-500 mt-4 text-center">
-              Timings converted to local time. Auto-sync enabled.
-            </p>
+        <DashboardCard title="Upcoming Races" icon={FaCalendarAlt}>
+          <div className="h-60 p-4 bg-white rounded shadow-inner text-sm text-gray-700 overflow-y-auto">
+            <UpcomingRaces />
           </div>
         </DashboardCard>
 
-        {/* Constructor Comparison */}
-        <DashboardCard title="Constructor Leaderboard">
+        {/* Constructor Leaderboard */}
+        <DashboardCard title="Constructor Leaderboard" icon={FaTrophy}>
           <div className="h-60 p-4 bg-white rounded shadow-inner text-sm">
             <ol className="list-decimal list-inside space-y-1 text-gray-700">
               <li>Red Bull – 520 pts</li>
@@ -73,6 +66,13 @@ export default function DashboardPage() {
             <p className="text-xs text-gray-500 mt-3 text-center">
               Points updated after each race (F3, F5).
             </p>
+          </div>
+        </DashboardCard>
+
+        {/* Driver Standings */}
+        <DashboardCard title="Top Drivers" icon={FaTrophy}>
+          <div className="h-60 p-4 bg-white rounded shadow-inner text-sm overflow-y-auto">
+            <DriverStandings />
           </div>
         </DashboardCard>
 
@@ -103,7 +103,6 @@ export default function DashboardPage() {
             </p>
           </div>
         </DashboardCard>
-
       </div>
 
       {/* Footer Sync Info */}
@@ -113,4 +112,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
